@@ -1,23 +1,35 @@
 import { Router, helpers } from "https://deno.land/x/oak/mod.ts";
 
+import { authn } from "./authn.middleware.ts";
 import { StorageInstance } from "../lib/storage.ts";
 
 export const initializeRoutes = (router: Router) => {
   router
+    .get("/healthz", ({ response }) => {
+      response.status = 200;
+    })
     // @todo: req validation
-    .put("/v8/artifacts/:hash", async (ctx) => {
+    .put("/v8/artifacts/:hash", authn, async (ctx) => {
       const { request, response, params } = ctx;
-
-      const artifactContent = await request.body({ limit: 0 }).value;
+      console.log(helpers.getQuery(ctx, { mergeParams: true }));
+      const artifact = await request.body({ limit: 0 }).value;
       const hash = params.hash;
       const slug = helpers.getQuery(ctx, { mergeParams: true }).slug;
 
-      await StorageInstance.set({ hash, slug, content: artifactContent });
+      await StorageInstance.set({ hash, slug, content: artifact });
 
       response.status = 201;
     })
     // @todo: req validation
-    .get("/v8/artifacts/:hash", ({ request, response, params }) => {
-      response.body = params.hash;
+    .get("/v8/artifacts/:hash", authn, async (ctx) => {
+      const { response, params } = ctx;
+
+      const hash = params.hash;
+      const slug = helpers.getQuery(ctx, { mergeParams: true }).slug;
+
+      const artifact = await StorageInstance.get(hash, slug);
+
+      response.body = artifact;
+      response.status = 200;
     });
 };
