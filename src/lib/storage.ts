@@ -1,14 +1,18 @@
+import "https://deno.land/x/dotenv/load.ts";
+
 import { IArtifactStorage } from "./interfaces/artifact-storage.interface.ts";
-import { DiskStorage } from "./services/disk-storage.ts";
+import { DiskStorage } from "../services/disk-storage.ts";
 
 export enum StorageType {
   Disk = "Disk",
   AWS = "AWS",
   GCS = "GCS",
+  Azure = "Azure",
 }
 
 const getStorageInstance = (): IArtifactStorage => {
   const storageType = Deno.env.get("STORAGE_TYPE");
+
   switch (storageType) {
     case StorageType.Disk:
       return new DiskStorage();
