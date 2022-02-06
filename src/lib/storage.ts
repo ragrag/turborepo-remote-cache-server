@@ -1,7 +1,6 @@
-// deno-lint-ignore-file require-await
 import config from './parse-config';
 import { IArtifactStorage, StorageType } from './interfaces/artifact-storage.interface';
-import { DiskStorage } from '../services/disk-storage.service';
+import { DiskStorage } from '../connectors/disk-storage.connector';
 
 const getStorageInstance = (): IArtifactStorage => {
   const storageType = config.STORAGE_TYPE;

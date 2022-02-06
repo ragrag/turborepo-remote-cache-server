@@ -1,4 +1,3 @@
-// deno-lint-ignore-file require-await
 import path from 'path';
 import fs from 'fs/promises';
 import fsSync from 'fs';
