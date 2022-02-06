@@ -7,7 +7,6 @@ export const registerRoutes = (router: Router) => {
     .get("/healthz", ({ response }) => {
       response.status = 200;
     })
-    // @todo: validate with zod
     .put("/v8/artifacts/:hash", authz, async (ctx) => {
       const { request, response, params } = ctx;
 
@@ -18,7 +17,6 @@ export const registerRoutes = (router: Router) => {
 
       response.status = 201;
     })
-    // @todo: validate with zod
     .get("/v8/artifacts/:hash", authz, async (ctx) => {
       const { response, params } = ctx;
 
