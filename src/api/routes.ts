@@ -1,6 +1,6 @@
 import { Router, helpers } from "https://deno.land/x/oak/mod.ts";
 
-import { authn } from "./authn.middleware.ts";
+import { authz } from "./middlewares/authz.middleware.ts";
 import { StorageInstance } from "../lib/storage.ts";
 
 export const registerRoutes = (router: Router) => {
@@ -9,7 +9,7 @@ export const registerRoutes = (router: Router) => {
       response.status = 200;
     })
     // @todo: validate with zod
-    .put("/v8/artifacts/:hash", authn, async (ctx) => {
+    .put("/v8/artifacts/:hash", authz, async (ctx) => {
       const { request, response, params } = ctx;
 
       const artifact = await request.body({ limit: 0 }).value;
@@ -21,7 +21,7 @@ export const registerRoutes = (router: Router) => {
       response.status = 201;
     })
     // @todo: validate with zod
-    .get("/v8/artifacts/:hash", authn, async (ctx) => {
+    .get("/v8/artifacts/:hash", authz, async (ctx) => {
       const { response, params } = ctx;
 
       const hash = params.hash;
