@@ -3,15 +3,15 @@ import { Router, helpers } from "https://deno.land/x/oak/mod.ts";
 import { authn } from "./authn.middleware.ts";
 import { StorageInstance } from "../lib/storage.ts";
 
-export const initializeRoutes = (router: Router) => {
+export const registerRoutes = (router: Router) => {
   router
     .get("/healthz", ({ response }) => {
       response.status = 200;
     })
-    // @todo: req validation
+    // @todo: validate with zod
     .put("/v8/artifacts/:hash", authn, async (ctx) => {
       const { request, response, params } = ctx;
-      console.log(helpers.getQuery(ctx, { mergeParams: true }));
+
       const artifact = await request.body({ limit: 0 }).value;
       const hash = params.hash;
       const slug = helpers.getQuery(ctx, { mergeParams: true }).slug;
@@ -20,7 +20,7 @@ export const initializeRoutes = (router: Router) => {
 
       response.status = 201;
     })
-    // @todo: req validation
+    // @todo: validate with zod
     .get("/v8/artifacts/:hash", authn, async (ctx) => {
       const { response, params } = ctx;
 
