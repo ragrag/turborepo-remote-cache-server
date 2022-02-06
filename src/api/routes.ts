@@ -1,4 +1,4 @@
-import { Router, helpers } from "../../deps.ts";
+import { Router } from "../../deps.ts";
 import { authz } from "./middlewares/authz.middleware.ts";
 import { StorageInstance } from "../lib/storage.ts";
 
@@ -13,9 +13,8 @@ export const registerRoutes = (router: Router) => {
 
       const artifact = await request.body({ limit: 0 }).value;
       const hash = params.hash;
-      const slug = helpers.getQuery(ctx, { mergeParams: true }).slug;
 
-      await StorageInstance.set({ hash, slug, content: artifact });
+      await StorageInstance.set({ hash, content: artifact });
 
       response.status = 201;
     })
@@ -24,9 +23,8 @@ export const registerRoutes = (router: Router) => {
       const { response, params } = ctx;
 
       const hash = params.hash;
-      const slug = helpers.getQuery(ctx, { mergeParams: true }).slug;
 
-      const artifact = await StorageInstance.get(hash, slug);
+      const artifact = await StorageInstance.get(hash);
 
       response.body = artifact;
       response.status = 200;

@@ -1,4 +1,5 @@
-import env from "./parse-env.ts";
+// deno-lint-ignore-file require-await
+import config from "./parse-config.ts";
 import {
   IArtifactStorage,
   StorageType,
@@ -6,7 +7,7 @@ import {
 import { DiskStorage } from "../services/disk-storage.service.ts";
 
 const getStorageInstance = (): IArtifactStorage => {
-  const storageType = env.STORAGE_TYPE;
+  const storageType = config.STORAGE_TYPE;
 
   switch (storageType) {
     case StorageType.Disk:
