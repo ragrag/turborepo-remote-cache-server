@@ -1,3 +1,5 @@
+import "https://deno.land/x/dotenv/load.ts";
+
 import { cleanEnv, str, num } from "../../deps.ts";
 import { StorageType } from "./interfaces/artifact-storage.interface.ts";
 
