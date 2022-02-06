@@ -23,7 +23,7 @@ export const registerRoutes = (router: Router) => {
       const hash = params.hash;
 
       const artifact = await StorageInstance.get(hash);
-
+      response.headers.set("Content-Type", "application/octet-stream");
       response.body = artifact;
       response.status = 200;
     });
