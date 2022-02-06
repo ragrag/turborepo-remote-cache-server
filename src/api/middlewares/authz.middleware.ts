@@ -1,6 +1,4 @@
-import "https://deno.land/x/dotenv/load.ts";
-import { Context } from "https://deno.land/x/oak/mod.ts";
-
+import { Context } from "../../../deps.ts";
 import env from "../../lib/parse-env.ts";
 
 export const authz = async (ctx: Context, next: () => Promise<unknown>) => {

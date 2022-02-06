@@ -1,5 +1,4 @@
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-
+import { Application, Router } from "./deps.ts";
 import env from "./src/lib/parse-env.ts";
 import { registerRoutes } from "./src/api/routes.ts";
 

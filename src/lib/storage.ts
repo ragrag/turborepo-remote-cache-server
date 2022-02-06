@@ -1,5 +1,3 @@
-import "https://deno.land/x/dotenv/load.ts";
-
 import env from "./parse-env.ts";
 import {
   IArtifactStorage,

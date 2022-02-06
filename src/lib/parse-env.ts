@@ -1,6 +1,4 @@
-import "https://deno.land/x/dotenv/load.ts";
-import { cleanEnv, str, num } from "https://deno.land/x/envalid/mod.ts";
-
+import { cleanEnv, str, num } from "../../deps.ts";
 import { StorageType } from "./interfaces/artifact-storage.interface.ts";
 
 export default cleanEnv(Deno.env.toObject(), {

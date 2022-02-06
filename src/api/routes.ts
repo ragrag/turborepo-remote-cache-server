@@ -1,5 +1,4 @@
-import { Router, helpers } from "https://deno.land/x/oak/mod.ts";
-
+import { Router, helpers } from "../../deps.ts";
 import { authz } from "./middlewares/authz.middleware.ts";
 import { StorageInstance } from "../lib/storage.ts";
 
