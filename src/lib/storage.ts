@@ -1,10 +1,7 @@
 // deno-lint-ignore-file require-await
-import config from "./parse-config.ts";
-import {
-  IArtifactStorage,
-  StorageType,
-} from "./interfaces/artifact-storage.interface.ts";
-import { DiskStorage } from "../services/disk-storage.service.ts";
+import config from './parse-config';
+import { IArtifactStorage, StorageType } from './interfaces/artifact-storage.interface';
+import { DiskStorage } from '../services/disk-storage.service';
 
 const getStorageInstance = (): IArtifactStorage => {
   const storageType = config.STORAGE_TYPE;
@@ -16,11 +13,7 @@ const getStorageInstance = (): IArtifactStorage => {
     case StorageType.AWS:
       throw new Error(`Storage type: ${storageType} is not implemented yet`);
     default:
-      throw new Error(
-        `make sure you set STORAGE_TYPE env variable as one of ${Object.values(
-          StorageType
-        )}`
-      );
+      throw new Error(`make sure you set STORAGE_TYPE env variable as one of ${Object.values(StorageType)}`);
   }
 };
 

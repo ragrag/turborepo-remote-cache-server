@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "lib": ["dom", "es6", "es2017", "esnext.asynciterable","es2020"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "target": "esnext"
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
+
+

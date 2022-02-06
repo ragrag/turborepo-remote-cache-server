@@ -1,30 +1,18 @@
-import { Router } from "../../deps.ts";
-import { authz } from "./middlewares/authz.middleware.ts";
-import { StorageInstance } from "../lib/storage.ts";
+import { FastifyInstance } from 'fastify';
+import { authz } from './middlewares/authz.middleware';
+import { StorageInstance } from '../lib/storage';
 
-export const registerRoutes = (router: Router) => {
+export const registerRoutes = (router: FastifyInstance): void => {
   router
-    .get("/healthz", ({ response }) => {
-      response.status = 200;
+    .get('/healthz', (req, res) => {
+      res.status(200).send();
     })
-    .put("/v8/artifacts/:hash", authz, async (ctx) => {
-      const { request, response, params } = ctx;
-
-      const artifact = await request.body({ limit: 0 }).value;
-      const hash = params.hash;
-
-      await StorageInstance.set({ hash, content: artifact });
-
-      response.status = 201;
+    .put<{ Params: { hash: string }; Body: Buffer }>('/v8/artifacts/:hash', { preHandler: authz }, async (req, res) => {
+      await StorageInstance.set({ hash: req.params.hash, content: req.body });
+      res.status(200).send();
     })
-    .get("/v8/artifacts/:hash", authz, async (ctx) => {
-      const { response, params } = ctx;
-
-      const hash = params.hash;
-
-      const artifact = await StorageInstance.get(hash);
-      response.headers.set("Content-Type", "application/octet-stream");
-      response.body = artifact;
-      response.status = 200;
+    .get<{ Params: { hash: string } }>('/v8/artifacts/:hash', { preHandler: authz }, async (req, res) => {
+      const artifact = await StorageInstance.get(req.params.hash);
+      res.status(200).send(artifact);
     });
 };

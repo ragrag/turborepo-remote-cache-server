@@ -5,13 +5,13 @@ export interface IArtifactStorageSetParams {
 }
 
 export interface IArtifactStorage {
-  get: (hash: string, slug?: string) => Promise<Uint8Array>;
+  get: (hash: string, slug?: string) => Promise<Buffer>;
   set: ({ hash, slug, content }: IArtifactStorageSetParams) => Promise<void>;
 }
 
 export enum StorageType {
-  Disk = "Disk",
-  AWS = "AWS",
-  GCS = "GCS",
-  Azure = "Azure",
+  Disk = 'Disk',
+  AWS = 'AWS',
+  GCS = 'GCS',
+  Azure = 'Azure',
 }

@@ -1,12 +1,13 @@
-import { Context } from "../../../deps.ts";
-import config from "../../lib/parse-config.ts";
+import { FastifyReply, FastifyRequest, HookHandlerDoneFunction } from 'fastify';
 
-export const authz = async (ctx: Context, next: () => Promise<unknown>) => {
-  const authHeader = ctx.request.headers.get("authorization");
-  const requestApiToken = authHeader?.split("Bearer ")?.[1];
+import config from '../../lib/parse-config';
+
+export const authz = (req: FastifyRequest, res: FastifyReply, done: HookHandlerDoneFunction): void => {
+  const authHeader = req.headers.authorization;
+  const requestApiToken = authHeader?.split('Bearer ')?.[1];
   if (requestApiToken === config.TOKEN) {
-    await next();
+    done();
   } else {
-    ctx.response.status = 401;
+    res.status(401).send();
   }
 };

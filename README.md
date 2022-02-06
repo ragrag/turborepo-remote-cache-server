@@ -1,2 +1,2 @@
 # Turborepo-Remote-Caching-Deno
- Remote Caching Server for Turborepo in Deno With Support for Disk Storage, AWS S3, Google Cloud Storage
+ Turborepo Remote Caching Server With Support for Disk Storage, AWS S3, Google Cloud Storage
