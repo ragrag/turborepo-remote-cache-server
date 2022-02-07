@@ -18,4 +18,4 @@ const getStorageInstance = (): IArtifactStorage => {
   }
 };
 
-export const StorageInstance = getStorageInstance();
+export const Storage = getStorageInstance();
