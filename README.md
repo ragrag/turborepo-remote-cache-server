@@ -3,7 +3,6 @@
 
 ## Todos
 - S3
-- GCS
-- AFS
+- Azure
 - Docs
 - Dockerfile
