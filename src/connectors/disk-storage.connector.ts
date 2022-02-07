@@ -1,13 +1,13 @@
-import path from 'path';
-import fs from 'fs/promises';
 import fsSync from 'fs';
+import fs from 'fs/promises';
+import path from 'path';
 
 import { IArtifactStorage, IArtifactStorageSetParams } from '../lib/interfaces/artifact-storage.interface';
-import config from '../lib/parse-config';
 
 export class DiskStorage implements IArtifactStorage {
-  private readonly cacheDir = config.DISK_STORAGE_PATH;
-  constructor() {
+  private readonly cacheDir: string;
+  constructor({ cacheDir }: { cacheDir: string }) {
+    this.cacheDir = cacheDir;
     if (!fsSync.existsSync(this.cacheDir)) {
       fsSync.mkdirSync(this.cacheDir, { recursive: true });
     }

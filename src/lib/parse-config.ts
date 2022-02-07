@@ -10,6 +10,7 @@ const config = {
     }),
     DISK_STORAGE_PATH: str({ default: './.cache' }),
     GOOGLE_CLOUD_SERVICE_ACCOUNT: str({ default: undefined }),
+    GOOGLE_CLOUD_BUCKET_NAME: str({ default: undefined }),
     PORT: num({ default: 3000 }),
   }),
 };

@@ -1,11 +1,11 @@
 export interface IArtifactStorageSetParams {
   hash: string;
   slug?: string;
-  content: Uint8Array;
+  content: Buffer;
 }
 
 export interface IArtifactStorage {
-  get: (hash: string, slug?: string) => Promise<Buffer>;
+  get: (hash: string, slug?: string) => Promise<Buffer | undefined>;
   set: ({ hash, slug, content }: IArtifactStorageSetParams) => Promise<void>;
 }
 

@@ -11,6 +11,7 @@
   },
   "main": "dist/app.js",
   "dependencies": {
+    "@google-cloud/storage": "^5.18.1",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "envalid": "^7.2.2",
