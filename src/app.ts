@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import 'dotenv/config';
-
 import fastify from 'fastify';
+
 import config from './lib/parse-config';
 import { registerRoutes } from './api/routes';
 import { errorHandler } from './api/middlewares';
