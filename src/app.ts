@@ -12,8 +12,6 @@ app.addContentTypeParser('application/octet-stream', { parseAs: 'buffer', bodyLi
   done(null, body);
 });
 
-app.register(require('fastify-multipart'));
-app.register(require('fastify-formbody'));
 registerRoutes(app);
 app.setErrorHandler(errorHandler);
 

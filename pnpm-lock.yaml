@@ -12,8 +12,6 @@ specifiers:
   eslint-config-prettier: ^8.1.0
   eslint-plugin-import: ^2.22.1
   fastify: ^3.27.1
-  fastify-formbody: ^5.2.0
-  fastify-multipart: ^5.3.0
   pino-pretty: ^7.5.1
   prettier: ^2.2.1
   prettier-eslint: ^12.0.0
@@ -26,8 +24,6 @@ dependencies:
   dotenv: 8.6.0
   envalid: 7.2.2
   fastify: 3.27.1
-  fastify-formbody: 5.2.0
-  fastify-multipart: 5.3.0
   pino-pretty: 7.5.1
 
 devDependencies:
@@ -85,13 +81,6 @@ packages:
     resolution: {integrity: sha512-gvCOUNpXsWrIQ3A4aXCLIdblL0tDq42BG/2Xw7oxbil9h11uow10ztS2GuFazNBfjbrsZ5nl+nPl5jDSjj5TSg==}
     dependencies:
       ajv: 6.12.6
-    dev: false
-
-  /@fastify/busboy/1.0.0:
-    resolution: {integrity: sha512-tzTXX1TFEjWCseEsNdIlXXkD+48uJoN+zpqIojUX4pSoMscsbhO/UuVEB5SzJucexqDWOo2ma0ECwdD7hZdrzg==}
-    engines: {node: '>=10.17.0'}
-    dependencies:
-      text-decoding: 1.0.0
     dev: false
 
   /@google-cloud/common/3.9.0:
@@ -1144,29 +1133,6 @@ packages:
     resolution: {integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==}
     dev: false
 
-  /fastify-formbody/5.2.0:
-    resolution: {integrity: sha512-d8Y5hCL82akPyoFiXh2wYOm3es0pV9jqoPo3pO9OV2cNF0cQx39J5WAVXzCh4MSt9Z2qF4Fy5gHlvlyESwjtvg==}
-    dependencies:
-      fastify-plugin: 3.0.1
-    dev: false
-
-  /fastify-multipart/5.3.0:
-    resolution: {integrity: sha512-SsPhHh8BtqAsONXUj7LH7drp6wPxeRE56dmRmXv3bjqXWYZvYBIEMPWbFk6dL1922APTBsYNn2uvGcQv16oVkg==}
-    dependencies:
-      '@fastify/busboy': 1.0.0
-      deepmerge: 4.2.2
-      end-of-stream: 1.4.4
-      fastify-error: 0.3.1
-      fastify-plugin: 3.0.1
-      hexoid: 1.0.0
-      secure-json-parse: 2.4.0
-      stream-wormhole: 1.1.0
-    dev: false
-
-  /fastify-plugin/3.0.1:
-    resolution: {integrity: sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==}
-    dev: false
-
   /fastify-warning/0.2.0:
     resolution: {integrity: sha512-s1EQguBw/9qtc1p/WTY4eq9WMRIACkj+HTcOIK1in4MV5aFaQC9ZCIt0dJ7pr5bIf4lPpHvAtP2ywpTNgs7hqw==}
     dev: false
@@ -1428,11 +1394,6 @@ packages:
 
   /hash-stream-validation/0.2.4:
     resolution: {integrity: sha512-Gjzu0Xn7IagXVkSu9cSFuK1fqzwtLwFhNhVL8IFJijRNMgUttFbBSIAzKuSIrsFMO1+g1RlsoN49zPIbwPDMGQ==}
-    dev: false
-
-  /hexoid/1.0.0:
-    resolution: {integrity: sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==}
-    engines: {node: '>=8'}
     dev: false
 
   /http-proxy-agent/5.0.0:
@@ -2250,11 +2211,6 @@ packages:
     resolution: {integrity: sha512-AiisoFqQ0vbGcZgQPY1cdP2I76glaVA/RauYR4G4thNFgkTqr90yXTo4LYX60Jl+sIlPNHHdGSwo01AvbKUSVQ==}
     dev: false
 
-  /stream-wormhole/1.1.0:
-    resolution: {integrity: sha512-gHFfL3px0Kctd6Po0M8TzEvt3De/xu6cnRrjlfYNhwbhLPLwigI2t1nc6jrzNuaYg5C4YF78PPFuQPzRiqn9ew==}
-    engines: {node: '>=4.0.0'}
-    dev: false
-
   /string-similarity/4.0.4:
     resolution: {integrity: sha512-/q/8Q4Bl4ZKAPjj8WerIBJWALKkaPRfrvhfF8k/B23i4nzrlRj2/go1m90In7nG/3XDSbOo0+pu6RvCTM9RGMQ==}
     dev: false
@@ -2361,10 +2317,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    dev: false
-
-  /text-decoding/1.0.0:
-    resolution: {integrity: sha512-/0TJD42KDnVwKmDK6jj3xP7E2MG7SHAOG4tyTgyUCRPdHwvkquYNLEQltmdMa3owq3TkddCVcTsoctJI8VQNKA==}
     dev: false
 
   /text-table/0.2.0:
