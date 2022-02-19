@@ -5,7 +5,7 @@ export interface IArtifactStorageSetParams {
 }
 
 export interface IArtifactStorage {
-  get: (hash: string, slug?: string) => Promise<Buffer | undefined>;
+  get: (hash: string, slug?: string) => Promise<Buffer | ReadableStream | undefined>;
   set: ({ hash, slug, content }: IArtifactStorageSetParams) => Promise<void>;
 }
 
